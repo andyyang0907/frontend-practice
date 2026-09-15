@@ -1,35 +1,69 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>社团活动报名</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社团活动报名</title>
+</head>
 
-    <body>
-        <header>
-            <h1>社团活动报名</h1>
-            <p>欢迎参加校园科技活动</p>
-        </header>
+<body>
+    <header>
+        <h1>社团活动报名</h1>
+        <p>欢迎参加校园科技活动</p>
+    </header>
 
-        <nav>
-            <a href="#intro">活动介绍</a>
-            <a href="#form">开始报名</a>
-        </nav>
+    <nav>
+        <a href="#intro">活动介绍</a>
+        <a href="#form">开始报名</a>
+    </nav>
 
-        <main>
-            <section id="intro">
-                <h2>活动介绍</h2>
-                <p>本次活动主要包括编程体验和科技交流。</p>
-            </section>
+    <main>
+        <section id="intro">
+            <h2>活动介绍</h2>
+            <p>本次活动主要包括编程体验和科技交流。</p>
+        </section>
 
-            <section id="form">
-                <h2>报名信息</h2>
-            </section>
-        </main>
+        <section id="form">
+            <h2>报名信息</h2>
+            <form action="#" method="get">
+                <p>
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" required>
+                </p>
+                <p>
+                    <label for="mail">邮箱</label>
+                    <input type="email" id="mail" name="mail" required>
+                </p>
+                <p>
+                    <label for="age">年龄</label>
+                    <input type="number" id="age" name="age" min="15" max="30">
+                </p>
+                <p>参加方式
+                    <label><input type="radio" name="way" value="online">线上</label>
+                    <label><input type="radio" name="way" value="offline">线下</label>
+                </p>
+                <p>感兴趣的内容
+                    <label><input type="checkbox" name="topic">编程</label>
+                    <label><input type="checkbox" name="topic">网页设计</label>
+                </p>
+                <p>
+                    <label for="level">编程水平</label>
+                    <select id="level" name="level">
+                        <option>初学者</option>
+                        <option>有一定基础</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="message">活动建议</label><br>
+                    <textarea id="message" name="message" maxlength="200"></textarea>
+                </p>
+                <button type="submit">提交报名</button>
+            </form>
+        </section>
+    </main>
 
-        <footer>
-            <p>校园科技社活动报名</p>
-        </footer>
-    </body>
+    <footer>
+        <p>校园科技社活动报名</p>
+    </footer>
+</body>
 </html>
