@@ -1,0 +1,33 @@
+body {
+    width: 700px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    margin: 20px;
+}
+
+nav a {
+    margin: 10px;
+}
+
+section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+input, select, textarea {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    padding: 8px 20px;
+}
