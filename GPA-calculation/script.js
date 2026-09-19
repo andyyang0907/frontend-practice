@@ -22,3 +22,10 @@ const gpa = (list) => {
     return (total / valid.length).toFixed(2);
 };
 console.log('绩点：',gpa(course));
+//每门课程的绩点
+const coursePoints = cleanCourse(course).map(c => ({
+    name: c.name,
+    point: Math.max(0,Math.min(5.0,(c.score-50)/10))
+}));
+console.log('每门课程的绩点：',coursePoints);
+
