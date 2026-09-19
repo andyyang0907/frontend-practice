@@ -7,7 +7,8 @@ const list = document.querySelector('#book-list');
 const searchInput = document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-btn');
 const allBtn = document.querySelector('#all-btn');
-let books = [];
+let books = JSON.parse(localStorage.getItem('books') || '[]');
+const save = () => localStorage.setItem('books', JSON.stringify(books));
 const render = (shown = books) => {
     list.innerHTML = '';
     if (shown.length === 0) {
@@ -23,6 +24,7 @@ const render = (shown = books) => {
         del.textContent = '删除';
         del.addEventListener('click', () => {
             books.splice(index, 1);
+            save();
             render();
         });
         li.appendChild(del);
@@ -47,6 +49,7 @@ form.addEventListener('submit', (e) => {
     nameInput.value = '';
     authorInput.value = '';
     ratingInput.value = '';
+    save();
     render();
 });
 searchBtn.addEventListener('click', () => {
