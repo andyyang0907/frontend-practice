@@ -4,18 +4,28 @@ const authorInput = document.querySelector('#author-input');
 const ratingInput = document.querySelector('#rating-input');
 const tip = document.querySelector('#tip');
 const list = document.querySelector('#book-list');
+const searchInput = document.querySelector('#search-input');
+const searchBtn = document.querySelector('#search-btn');
+const allBtn = document.querySelector('#all-btn');
 let books = [];
-const render = () => {
+const render = (shown = books) => {
     list.innerHTML = '';
-    if (books.length === 0) {
+    if (shown.length === 0) {
         const li = document.createElement('li');
         li.textContent = '暂无图书';
         list.appendChild(li);
         return;
     }
-    books.forEach(book => {
+    shown.forEach((book, index) => {
         const li = document.createElement('li');
         li.textContent = book.name + ' | ' + book.author + ' | ' + book.rating;
+        const del = document.createElement('button');
+        del.textContent = '删除';
+        del.addEventListener('click', () => {
+            books.splice(index, 1);
+            render();
+        });
+        li.appendChild(del);
         list.appendChild(li);
     });
 };
@@ -37,6 +47,15 @@ form.addEventListener('submit', (e) => {
     nameInput.value = '';
     authorInput.value = '';
     ratingInput.value = '';
+    render();
+});
+searchBtn.addEventListener('click', () => {
+    const text = searchInput.value.trim();
+    const shown = books.filter(book => book.name.includes(text));
+    render(shown);
+});
+allBtn.addEventListener('click', () => {
+    searchInput.value = '';
     render();
 });
 render();
