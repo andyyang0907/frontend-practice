@@ -3,7 +3,8 @@ const input = document.getElementById('task-input');
 const tip = document.getElementById('tip');
 const list = document.getElementById('task-list');
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+const save = () => localStorage.setItem('tasks', JSON.stringify(tasks));
 let render = () => {
     list.innerHTML = '';
     if (tasks.length === 0) {
